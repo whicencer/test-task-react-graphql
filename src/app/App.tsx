@@ -6,12 +6,12 @@ import { Button } from "@/shared/ui/Button/Button";
 function App() {
   return (
     <ConfigProvider theme={themeConfig}>
-      <Layout style={{ maxWidth: 1200, margin: "0 auto", background: "none" }}>
+      <Layout style={{ maxWidth: 1200, margin: "30px auto", background: "none" }}>
         <Flex align="center">
           <Input
             placeholder="Enter a Github repository name or link"
           />
-          <Button style={{ borderRadius: 100, height: "100%", minWidth: 80 }} type="primary">🔍</Button>
+          <Button style={{ borderRadius: 100, minHeight: 70, minWidth: 70 }} type="primary">🔍</Button>
         </Flex>
       </Layout>
     </ConfigProvider>
