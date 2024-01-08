@@ -29,7 +29,7 @@ export const SearchForm = () => {
 				<Input
 					value={repo}
 					onChange={handleChange}
-					placeholder="Enter a Github repository name or link"
+					placeholder="Enter a Github repository name"
 				/>
 				<Button
 					style={{ borderRadius: 100, minHeight: 70, minWidth: 70 }}

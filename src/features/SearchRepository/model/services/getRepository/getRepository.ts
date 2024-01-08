@@ -4,29 +4,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Response } from "./Response.type";
 import { formatNumber } from "@/helpers/formatNumber";
+import { GRAPHQL_QUERY } from "./graphqlQuery";
 
 export interface GetRepositoryProps {
 	repositoryName: string;
 	repositoryOwner: string;
 }
-
-const GRAPHQL_QUERY = `
-  query GetRepository($owner: String!, $name: String!) {
-    repository(owner: $owner, name: $name) {
-      name
-      description
-      owner {
-        login
-      }
-      stargazers {
-        totalCount
-      }
-      issues {
-        totalCount
-      }
-    }
-  }
-`;
 
 export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { rejectValue: string }>(
 	"searchRepository/getRepository",
