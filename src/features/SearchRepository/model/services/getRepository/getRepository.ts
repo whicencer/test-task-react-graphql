@@ -19,7 +19,7 @@ export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { 
 				"https://api.github.com/graphql",
 				{ query: GRAPHQL_QUERY, variables: { owner: repositoryOwner, name: repositoryName } },
 				{ headers: { "Authorization": `Bearer ${import.meta.env.VITE_GITHUB_API_KEY}` } }
-		      	);
+			);
 			
 			if (!response.data || response.data.errors) {
 				const error = response?.data?.errors?.[0];
