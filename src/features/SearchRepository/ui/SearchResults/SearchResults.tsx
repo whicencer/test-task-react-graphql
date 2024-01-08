@@ -20,7 +20,7 @@ export const SearchResults = () => {
 	return (
 		<div className={cls.SearchResults}>
 			{
-				repositoryData && (
+				repositoryData ? (
 					<RepositoryCard repository={{
 						owner: repositoryData.owner,
 						name: repositoryData.name,
@@ -28,7 +28,7 @@ export const SearchResults = () => {
 						starsCount: repositoryData.starsCount,
 						issuesCount: repositoryData.issuesCount
 					}} />
-				)
+				) : <h2>No repository.</h2>
 			}
 			{
 				errorVisible && (
