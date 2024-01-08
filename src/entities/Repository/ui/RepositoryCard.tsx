@@ -3,10 +3,10 @@ import GhIcon from "@/assets/images/github.svg";
 import StarIcon from "@/assets/images/star.svg";
 import IssueIcon from "@/assets/images/issue.svg";
 import cls from "./RepositoryCard.module.scss";
-import { RepositorySchema } from "../model/types/RepositorySchema";
+import { Repository } from "../model/types/RepositorySchema";
 
 interface RepositoryCardProps {
-	repository: RepositorySchema;
+	repository: Repository;
 }
 
 export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
@@ -24,7 +24,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 				</Flex>
 				<Flex style={{ marginTop: 2 }}>
 					<img src={IssueIcon} alt="issue" />
-					<h3 style={{ marginBottom: 2 }}>1.2k</h3>
+					<h3 style={{ marginBottom: 2 }}>{repository.issuesCount}</h3>
 				</Flex>
 			</Flex>
 		</Card>
