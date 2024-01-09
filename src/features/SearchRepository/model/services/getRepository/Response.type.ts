@@ -1,3 +1,5 @@
+import { IssueSchema } from "@/entities/Repository/model/types/IssueSchema";
+
 interface Owner {
   login: string;
 }
@@ -6,16 +8,12 @@ interface Stargazers {
   totalCount: number;
 }
 
-interface Issues {
-  totalCount: number;
-}
-
 interface RepositoryData {
   name: string;
   description: string;
   owner: Owner;
   stargazers: Stargazers;
-  issues: Issues;
+  issues: IssueSchema;
 }
 
 export interface Response {

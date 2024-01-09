@@ -9,9 +9,21 @@ query GetRepository($owner: String!, $name: String!) {
 		stargazers {
 			totalCount
 		}
-		issues {
-			totalCount
-		}
+		issues(last: 25) {
+      edges {
+        node {
+          id
+          title
+          body
+          createdAt
+          updatedAt
+          state
+          comments {
+            totalCount
+          }
+        }
+      }
+    }
 	}
 }
 `;

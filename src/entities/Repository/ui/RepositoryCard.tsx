@@ -7,11 +7,12 @@ import { Repository } from "../model/types/RepositorySchema";
 
 interface RepositoryCardProps {
 	repository: Repository;
+	onClick?: () => void;
 }
 
-export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
+export const RepositoryCard = ({ repository, onClick }: RepositoryCardProps) => {
 	return (
-		<Card className={cls.RepositoryCard}>
+		<Card className={cls.RepositoryCard} onClick={onClick}>
 			<Flex align="center" className={cls.RepositoryCardHeader}>
 				<img src={GhIcon} />
 				<h2>{repository.owner}/{repository.name}</h2>
@@ -24,7 +25,7 @@ export const RepositoryCard = ({ repository }: RepositoryCardProps) => {
 				</Flex>
 				<Flex style={{ marginTop: 2 }}>
 					<img src={IssueIcon} alt="issue" />
-					<h3 style={{ marginBottom: 2 }}>{repository.issuesCount}</h3>
+					<h3 style={{ marginBottom: 2 }}>{repository.issues.edges.length}</h3>
 				</Flex>
 			</Flex>
 		</Card>

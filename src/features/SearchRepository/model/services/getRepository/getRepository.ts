@@ -31,7 +31,7 @@ export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { 
 				name,
 				owner: owner.login,
 				description,
-				issuesCount: formatNumber(issues.totalCount),
+				issues: issues,
 				starsCount: formatNumber(stargazers.totalCount)
 			};
 

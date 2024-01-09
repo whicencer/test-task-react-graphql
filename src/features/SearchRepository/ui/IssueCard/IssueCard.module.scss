@@ -1,0 +1,38 @@
+.IssueCard {
+	background-color: #e2e6ec;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 20px;
+	
+	h2 {
+		margin-bottom: 15px;
+	}
+
+	.showMore {
+		display: inline-block;
+		margin-top: 10px;
+		color: blue;
+		&:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+
+	&:hover {
+		background-color: #c2c8cf;
+	}
+}
+
+.markdown {
+	img {
+		width: 500px;
+	}
+	code {
+		display: inline-block;
+		max-width: 100%;
+		overflow-x: auto;
+		background-color: #919dab;
+		padding: 8px;
+		border-radius: 4px;
+	}
+}
