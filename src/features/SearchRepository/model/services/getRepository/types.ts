@@ -16,12 +16,14 @@ interface RepositoryData {
   issues: IssueSchema;
 }
 
+interface Error {
+  type: string;
+  message: string;
+}
+
 export interface Response {
   data: {
     repository: RepositoryData;
   };
-  errors?: {
-    type: string;
-    message: string;
-  }[];
+  errors?: Error[];
 }

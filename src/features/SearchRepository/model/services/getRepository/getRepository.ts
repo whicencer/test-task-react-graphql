@@ -2,7 +2,7 @@ import { repositoryActions } from "@/entities/Repository";
 import { Repository } from "@/entities/Repository/model/types/RepositorySchema";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Response } from "./Response.type";
+import { Response } from "./types";
 import { formatNumber } from "@/helpers/formatNumber";
 import { GRAPHQL_QUERY } from "./graphqlQuery";
 
@@ -23,7 +23,9 @@ export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { 
 			
 			if (!response.data || response.data.errors) {
 				const error = response?.data?.errors?.[0];
-				throw new Error(`${error?.type || "Error"}: ${error?.message}`);
+				const errorMessage = `${error?.type || "Error"}: ${error?.message}`;
+
+				throw new Error(errorMessage);
 			}
 
 			const { name, owner, description, issues, stargazers } = response.data.data.repository;
@@ -39,7 +41,9 @@ export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { 
 
 			return repository;
 		} catch (error: unknown) {
-			return thunkApi.rejectWithValue(error instanceof Error ? error.message : "An error occurred");
+			const errorMessage = error instanceof Error ? error.message : "An error occurred";
+
+			return thunkApi.rejectWithValue(errorMessage);
 		}
 	}
 );

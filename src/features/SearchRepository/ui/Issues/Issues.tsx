@@ -9,7 +9,7 @@ export const Issues = () => {
 		<div style={{ marginTop: 30 }}>
 			{
 				edges.length === 0
-					? "No issues"
+					? "No issues."
 					: edges.map(issue => {
 						return (
 							<IssueCard key={issue.node.id} issue={issue} />
