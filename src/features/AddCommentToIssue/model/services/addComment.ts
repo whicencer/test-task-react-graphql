@@ -14,7 +14,7 @@ interface AddCommentResponse {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const addComment = createAsyncThunk<Response, AddCommentProps, { rejectValue: string }>(
-	"comment/addComment",
+	"comments/addComment",
 	async ({issueId, commentBody}, thunkApi) => {
 		try {
 			const response: AddCommentResponse = await axios.post<Response>(

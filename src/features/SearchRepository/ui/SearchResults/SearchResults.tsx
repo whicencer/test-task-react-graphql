@@ -1,12 +1,12 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Skeleton } from "antd";
 import { RepositoryCard } from "@/entities/Repository";
 import cls from "./SearchResults.module.scss";
-import { useSelector } from "react-redux";
 import { getRepositoryState } from "@/entities/Repository/model/selectors/getRepositoryState";
-import { useEffect, useState } from "react";
-import { Skeleton } from "antd";
 import { getSearchRepositoryState } from "../../model/selectors/getSearchRepositoryState";
 import { Modal } from "@/shared/ui/Modal/Modal";
-import { Issues } from "../Issues/Issues";
+import { IssuesList } from "../../../../entities/Issue";
 import { SearchError } from "../SearchError/SearchError";
 
 export const SearchResults = () => {
@@ -23,8 +23,7 @@ export const SearchResults = () => {
 
 	return (
 		<div className={cls.SearchResults}>
-			{/* Это всё можно было бы вынести в отдельные компоненты */}
-			
+			{/* Это всё, в принципе, можно было бы вынести в отдельные компоненты */}
 			{
 				repositoryData ? (
 					<>
@@ -38,7 +37,7 @@ export const SearchResults = () => {
 							}} onClick={() => setModalOpen(true)} />
 						</Skeleton>
 						<Modal title={`${repositoryData.owner}/${repositoryData.name} Issues`} isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-							<Issues />
+							<IssuesList />
 						</Modal>
 					</>
 				) : <h2>No repository.</h2>

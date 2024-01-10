@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addComment } from "../services/addComment";
 import { CommentsSchema, Status } from "../types/commentsSchema";
 
-const initialState: CommentSchema = {};
+const initialState: CommentsSchema = {};
 
 const commentsSlice = createSlice({
-	name: "comment",
+	name: "comments",
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {

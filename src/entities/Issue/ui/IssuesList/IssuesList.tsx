@@ -2,7 +2,7 @@ import { getRepositoryIssues } from "@/entities/Repository/model/selectors/getRe
 import { useSelector } from "react-redux";
 import { IssueCard } from "../IssueCard/IssueCard";
 
-export const Issues = () => {
+export const IssuesList = () => {
 	const { edges } = useSelector(getRepositoryIssues);
 
 	return (

@@ -1,6 +1,5 @@
 export interface SearchRepositorySchema {
-	repositoryName: string,
-	repositoryOwner: string;
+	repoName: string;
 	isLoading?: boolean;
 	error?: string;
 }

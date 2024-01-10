@@ -1,21 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SearchRepositorySchema } from "../types/SearchRepositorySchema";
+import { SearchRepositorySchema } from "../types/searchRepositorySchema";
 import { getRepository } from "../services/getRepository/getRepository";
 
 const initialState: SearchRepositorySchema = {
-	repositoryName: "",
-	repositoryOwner: ""
+	repoName: "",
 };
 
 const searchRepositorySlice = createSlice({
 	name: "searchRepository",
 	initialState,
 	reducers: {
-		setName(state, action: PayloadAction<string>) {
-			state.repositoryName = action.payload;
-		},
-		setOwner(state, action: PayloadAction<string>) {
-			state.repositoryOwner = action.payload;
+		setRepoName(state, action: PayloadAction<string>) {
+			state.repoName = action.payload;
 		}
 	},
 	extraReducers: (builder) => {
