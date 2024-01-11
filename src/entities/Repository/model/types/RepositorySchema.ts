@@ -1,4 +1,4 @@
-import { IssueSchema } from "./IssueSchema";
+import { IssueSchema } from "../../../Issue/model/types/IssueSchema";
 
 export interface Repository{
 	owner: string;

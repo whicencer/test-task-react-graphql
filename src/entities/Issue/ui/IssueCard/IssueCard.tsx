@@ -1,4 +1,4 @@
-import { Issue } from "@/entities/Repository/model/types/IssueSchema";
+import { Issue } from "../../model/types/IssueSchema";
 import cls from "./IssueCard.module.scss";
 import ReactMarkdown from "react-markdown";
 import { useState } from "react";

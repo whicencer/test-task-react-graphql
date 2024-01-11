@@ -1,4 +1,4 @@
-import { IssueSchema } from "@/entities/Repository/model/types/IssueSchema";
+import { IssueSchema } from "@/entities/Issue/model/types/IssueSchema";
 
 interface Owner {
   login: string;

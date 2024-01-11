@@ -24,6 +24,16 @@ export const AddCommentForm = ({ issueId }: AddCommentFormProps) => {
 		dispatch(addComment({ commentBody: commentValue, issueId }));
 	}
 
+	const renderAlert = () => {
+    if (status === Status.FAILURE) {
+      return <Alert type="error" message={error} />;
+    } else if (status === Status.SUCCESS) {
+      return <Alert type="success" message="Comment has been added!" />;
+    }
+		
+    return null;
+  };
+
 	return (
 		<>
 			<div>
@@ -35,14 +45,7 @@ export const AddCommentForm = ({ issueId }: AddCommentFormProps) => {
 				/>
 				<Button onClick={handleClick} disabled={!commentValue}>Comment</Button>
 			</div>
-			{
-				status === Status.FAILURE ? (
-					<Alert type="error" message={error} />
-				)
-				: status === Status.SUCCESS && (
-					<Alert type="success" message="Comment has been added!" />
-				)
-			}
+			{renderAlert()}
 		</>
-	)
+	);
 }
