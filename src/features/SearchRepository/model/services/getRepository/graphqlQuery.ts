@@ -23,6 +23,7 @@ query GetRepository($owner: String!, $name: String!) {
           }
         }
       }
+      totalCount
     }
 	}
 }

@@ -1,5 +1,6 @@
 export interface IssueSchema {
 	edges: Issue[];
+	totalCount: number;
 }
 
 export interface Issue {
