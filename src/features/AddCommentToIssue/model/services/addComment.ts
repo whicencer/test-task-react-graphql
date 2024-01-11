@@ -1,15 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { GRAPHQL_QUERY } from "./graphqlQuery";
 import { Response } from "./types";
+import { executeGraphQLQuery } from "@/helpers/executeGraphQLQuery";
 
 interface AddCommentProps {
 	issueId: string;
 	commentBody: string;
-}
-
-interface AddCommentResponse {
-	data: Response;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,11 +13,10 @@ export const addComment = createAsyncThunk<Response, AddCommentProps, { rejectVa
 	"comments/addComment",
 	async ({issueId, commentBody}, thunkApi) => {
 		try {
-			const response: AddCommentResponse = await axios.post<Response>(
-				"https://api.github.com/graphql",
-				{ query: GRAPHQL_QUERY, variables: { subjectId: issueId, body: commentBody } },
-				{ headers: { "Authorization": `Bearer ${import.meta.env.VITE_GITHUB_API_KEY}` } }
-			);
+			const response = await executeGraphQLQuery<Response>({
+				query: GRAPHQL_QUERY,
+				variables: { subjectId: issueId, body: commentBody }
+			});
 			
 			if (!response.data || response.data.errors) {
 				const error = response?.data?.errors?.[0];

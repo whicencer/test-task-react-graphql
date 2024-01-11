@@ -1,10 +1,10 @@
 import { repositoryActions } from "@/entities/Repository";
 import { Repository } from "@/entities/Repository/model/types/RepositorySchema";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { Response } from "./types";
 import { formatNumber } from "@/helpers/formatNumber";
 import { GRAPHQL_QUERY } from "./graphqlQuery";
+import { executeGraphQLQuery } from "@/helpers/executeGraphQLQuery";
 
 export interface GetRepositoryProps {
 	repositoryName: string;
@@ -15,11 +15,10 @@ export const getRepository = createAsyncThunk<Repository, GetRepositoryProps, { 
 	"searchRepository/getRepository",
 	async ({repositoryName, repositoryOwner}, thunkApi) => {
 		try {
-			const response = await axios.post<Response>(
-				"https://api.github.com/graphql",
-				{ query: GRAPHQL_QUERY, variables: { owner: repositoryOwner, name: repositoryName } },
-				{ headers: { "Authorization": `Bearer ${import.meta.env.VITE_GITHUB_API_KEY}` } }
-			);
+			const response = await executeGraphQLQuery<Response>({
+				query: GRAPHQL_QUERY,
+				variables: { owner: repositoryOwner, name: repositoryName }
+			});
 			
 			if (!response.data || response.data.errors) {
 				const error = response?.data?.errors?.[0];
