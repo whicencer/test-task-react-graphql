@@ -3,6 +3,8 @@
 GitHub Issues — это веб-приложение для получения Issues репозиториев GitHub и возможностью их комментировать
   
 
+Вы можете посмотреть приложение онлайн [здесь](https://test-task-react-graphql.vercel.app/ "https://test-task-react-graphql.vercel.app") или запустить его локально по шагам ниже
+
 ## Как запустить локально на компьютере
 - Клонируйте репозиторий с помощью команды `git clone https://github.com/whicencer/test-task-react-graphql.git`
 - Установите зависимости командой `npm install`
