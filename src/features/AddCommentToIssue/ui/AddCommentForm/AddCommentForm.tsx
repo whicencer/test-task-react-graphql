@@ -33,7 +33,7 @@ export const AddCommentForm = ({ issueId }: AddCommentFormProps) => {
 					placeholder="Leave comment"
 					type="text"
 				/>
-				<Button onClick={handleClick}>Comment</Button>
+				<Button onClick={handleClick} disabled={!commentValue}>Comment</Button>
 			</div>
 			{
 				status === Status.FAILURE ? (

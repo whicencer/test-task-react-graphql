@@ -14,12 +14,8 @@ export const SearchForm = () => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	const handleClick = () => {
-		if (!repoName.length) {
-			return;
-		} else {
-			const [repositoryOwner, repositoryName] = repoName.split('/');
-			dispatch(getRepository({ repositoryOwner, repositoryName }));
-		}
+		const [repositoryOwner, repositoryName] = repoName.split('/');
+		dispatch(getRepository({ repositoryOwner, repositoryName }));
 	};
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +31,7 @@ export const SearchForm = () => {
 					placeholder="Enter a Github repository name"
 				/>
 				<Button
+					disabled={!repoName}
 					style={{ borderRadius: 100, minHeight: 70, minWidth: 70 }}
 					type="primary"
 					onClick={handleClick}>🔍</Button>
